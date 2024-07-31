@@ -23,10 +23,12 @@ public class CrudApplication {
 
 	private void createStudent(StudentDAO studentDAO) {
 		System.out.println("Creating student");
-		Student student = new Student("Paul", "Walker", "fastEndFurious@mail.com");
+		Student student = new Student("Paul", "Walker","FastAndFurious@gmail.com");
 
 		System.out.println("Saving student");
 		studentDAO.save(student);
+
+		System.out.println("Student id: " + student.getId());
 
 	}
 }
