@@ -23,14 +23,20 @@ public class CrudApplication {
 			// readStudent(studentDAO);
 			// listOfStudents(studentDAO);
 			// listByLastName(studentDAO);
-			updateStudentName(studentDAO);
+			 updateStudentName(studentDAO);
+			// deleteStudent(studentDAO);
 		};
+	}
+
+	private void deleteStudent(StudentDAO studentDAO) {
+		studentDAO.delete(1);
+		studentDAO.findAll().forEach(System.out::println);
 	}
 
 	private void updateStudentName(StudentDAO studentDAO) {
 		Student student=studentDAO.findAll().get(1);
-		student.setFirstName("Gosho");
-		student.setLastName("Bonchev");
+		student.setFirstName("Paul");
+		student.setLastName("Walker");
 		studentDAO.update(student);
 		System.out.println(student.toString());
 	}

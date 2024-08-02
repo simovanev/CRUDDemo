@@ -30,7 +30,7 @@ public class StudentDAOImpl implements StudentDAO {
 
     @Override
     public List<Student> findAll() {
-        TypedQuery<Student> createQuery=entityManager.createQuery("FROM Student order by lastName",Student.class);
+        TypedQuery<Student> createQuery=entityManager.createQuery("FROM Student ",Student.class);
 
         return createQuery.getResultList();
 
@@ -49,5 +49,12 @@ public class StudentDAOImpl implements StudentDAO {
     public void update(Student student) {
         entityManager.merge(student);
 
+    }
+
+    @Override
+    @Transactional
+    public void delete(Integer id) {
+        Student student=entityManager.find(Student.class, id);
+        entityManager.remove(student);
     }
 }
