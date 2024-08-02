@@ -19,10 +19,18 @@ public class CrudApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO){
 		return runner ->{
-			//createStudent(studentDAO);
-			//readStudent(studentDAO);
-			listOfStudents(studentDAO);
+			// createStudent(studentDAO);
+			// readStudent(studentDAO);
+			// listOfStudents(studentDAO);
+			listByLastName(studentDAO);
 		};
+	}
+
+	private void listByLastName(StudentDAO studentDAO) {
+		List<Student> theList=studentDAO.findByLastName("Dow");
+		for(Student student : theList){
+			System.out.println(student);
+		}
 	}
 
 	private void listOfStudents(StudentDAO studentDAO) {
