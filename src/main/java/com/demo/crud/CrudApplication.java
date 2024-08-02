@@ -22,8 +22,17 @@ public class CrudApplication {
 			// createStudent(studentDAO);
 			// readStudent(studentDAO);
 			// listOfStudents(studentDAO);
-			listByLastName(studentDAO);
+			// listByLastName(studentDAO);
+			updateStudentName(studentDAO);
 		};
+	}
+
+	private void updateStudentName(StudentDAO studentDAO) {
+		Student student=studentDAO.findAll().get(1);
+		student.setFirstName("Gosho");
+		student.setLastName("Bonchev");
+		studentDAO.update(student);
+		System.out.println(student.toString());
 	}
 
 	private void listByLastName(StudentDAO studentDAO) {

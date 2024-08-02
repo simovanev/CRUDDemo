@@ -43,4 +43,11 @@ public class StudentDAOImpl implements StudentDAO {
         findBylName.setParameter("theName",name);
         return findBylName.getResultList();
     }
+
+    @Override
+    @Transactional
+    public void update(Student student) {
+        entityManager.merge(student);
+
+    }
 }
